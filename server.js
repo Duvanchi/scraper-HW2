@@ -7,7 +7,7 @@ var axios = require("axios");
 var cheerio = require("cheerio");
 
 var db = require("./models");
-app.use(express.static("public"));
+// app.use(express.static("public"));
 
 var PORT = process.env.PORT || 3030;
 
@@ -15,7 +15,7 @@ var app = express();
 
 app.use(logger("dev"));
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static("public"));
+
 
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
@@ -115,7 +115,7 @@ app.delete("/articles/:id", function(req, res) {
     });
 });
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/articles";
 
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI, {
